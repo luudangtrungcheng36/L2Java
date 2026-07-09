@@ -2,6 +2,7 @@ package com.octl2.api.controller;
 
 import com.octl2.api.commons.OctResponse;
 import com.octl2.api.dto.ProvinceDTO;
+import com.octl2.api.dto.ProvinceLogisticDTO;
 import com.octl2.api.service.ProvinceService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -10,6 +11,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 import javax.validation.constraints.Min;
 
@@ -27,4 +30,10 @@ public class ProvinceController {
         ProvinceDTO result = provinceService.getBybId(id);
         return OctResponse.build(result);
     }
+
+    @GetMapping("/logistic")
+    public List<ProvinceLogisticDTO> getLogistics() {
+        return provinceService.getProvinceLogistic();
+    }
+
 }
