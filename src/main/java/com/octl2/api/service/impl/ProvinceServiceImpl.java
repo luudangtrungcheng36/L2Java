@@ -8,6 +8,7 @@ import com.octl2.api.repository.ProvinceRepository;
 import com.octl2.api.repository.projection.ProvinceLogisticProjection;
 import com.octl2.api.service.ProvinceService;
 import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -18,7 +19,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 @Service
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class ProvinceServiceImpl implements ProvinceService {
 
     @Value("${logistics.level-mapping:1}")
@@ -34,6 +35,7 @@ public class ProvinceServiceImpl implements ProvinceService {
 
     @Override
     public List<ProvinceLogisticDTO> getProvinceLogistic() {
+
         List<ProvinceLogisticProjection> logisticProjections;
 
         if (levelMapping == 1) {

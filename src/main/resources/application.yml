@@ -4,4 +4,4 @@ spring:
     include: ${spring.profiles.active}, log
 
 logistics:
-  level-mapping: 1
+  level-mapping: 3
