@@ -86,4 +86,10 @@ public interface DistrictRepository extends JpaRepository<District, Long> {
                         "WHERE d.province_id = :provinceId " +
                         "ORDER BY d.district_id", nativeQuery = true)
         List<DistrictLogisticProjection> findLogisticsLevel3(@Param("provinceId") Long provinceId);
+
+        @Query(value = "SELECT " +
+                        "d.district_id " +
+                        "FROM lc_district d " +
+                        "WHERE d.province_id = :provinceId ", nativeQuery = true)
+        List<Integer> findByProvinceId(@Param("provinceId") Integer provinceId);
 }
